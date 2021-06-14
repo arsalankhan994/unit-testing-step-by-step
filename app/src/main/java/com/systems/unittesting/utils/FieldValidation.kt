@@ -1,11 +1,8 @@
 package com.systems.unittesting.utils
 
-import android.util.Patterns
-import java.util.regex.Pattern
-
 object FieldValidation {
 
-    const val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+    private const val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
     /*
     return false if
