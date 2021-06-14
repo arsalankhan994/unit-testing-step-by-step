@@ -51,5 +51,6 @@ dependencies {
     Adding Truth Library
     */
     testImplementation "com.google.truth:truth:1.1.3"
+    androidTestImplementation "com.google.truth:truth:1.1.3"
 
 }
