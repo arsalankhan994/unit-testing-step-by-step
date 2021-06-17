@@ -16,18 +16,19 @@ import org.junit.Test
 import javax.inject.Inject
 import javax.inject.Named
 
-@HiltAndroidTest
+@HiltAndroidTest // Remove AndroidJunitRunner and Use HiltAndroidTest
 @ExperimentalCoroutinesApi
 @SmallTest
 class UserTestDao {
-
-    @get:Rule(order = 1)
-    var hiltRule = HiltAndroidRule(this)
 
     // A JUnit Test Rule that swaps the background executor
     // used by the Architecture Components with a different one which executes each task synchronously
     @get:Rule(order = 0)
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    // Define HiltRule
+    @get:Rule(order = 1) // define order
+    var hiltRule = HiltAndroidRule(this)
 
     @Inject
     @Named("test-db")

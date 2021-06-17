@@ -14,6 +14,7 @@ import javax.inject.Named
 @InstallIn(SingletonComponent::class)
 object AppModuleTest {
 
+    // Provider database object for instrument testing
     @Provides
     @Named("test-db")
     fun provideUserDatabase(@ApplicationContext context: Context) =
