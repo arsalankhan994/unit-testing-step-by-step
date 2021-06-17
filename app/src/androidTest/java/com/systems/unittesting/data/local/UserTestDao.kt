@@ -1,42 +1,43 @@
 package com.systems.unittesting.data.local
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.systems.unittesting.entity.UserEntity
 import com.systems.unittesting.getOrAwaitValue
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
+import javax.inject.Inject
+import javax.inject.Named
 
+@HiltAndroidTest
 @ExperimentalCoroutinesApi
-@RunWith(AndroidJUnit4::class)
 @SmallTest
 class UserTestDao {
 
+    @get:Rule(order = 1)
+    var hiltRule = HiltAndroidRule(this)
+
     // A JUnit Test Rule that swaps the background executor
     // used by the Architecture Components with a different one which executes each task synchronously
-    @get:Rule
+    @get:Rule(order = 0)
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var userDatabase: UserDatabase
+    @Inject
+    @Named("test-db")
+    lateinit var userDatabase: UserDatabase
     private lateinit var userDao: UserDao
 
     // execute before every test case
     @Before
     fun setup() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
-        userDatabase = Room.inMemoryDatabaseBuilder(context, UserDatabase::class.java)
-            .allowMainThreadQueries()
-            .build()
+        hiltRule.inject()
         userDao = userDatabase.userDao()
     }
 
