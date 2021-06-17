@@ -10,3 +10,5 @@
 8) Use **@Before** and **@After** annotations
 9) Use Room Database ( insert, update and delete )
 10) Use **@get:Rule**
+11) Use Dagger Hilt for Room Database testing
+12) Use HiltAndroidRule
