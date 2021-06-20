@@ -10,13 +10,13 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.systems.unittesting"
+        applicationId "com.erselan.unittesting"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.systems.unittesting.HiltTestRunner"
+        testInstrumentationRunner "com.erselan.unittesting.HiltTestRunner"
     }
 
     buildTypes {
