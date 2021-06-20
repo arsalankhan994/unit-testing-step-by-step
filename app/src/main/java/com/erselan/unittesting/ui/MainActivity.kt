@@ -1,8 +1,8 @@
-package com.systems.unittesting.ui
+package com.erselan.unittesting.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.systems.unittesting.databinding.ActivityMainBinding
+import com.erselan.unittesting.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

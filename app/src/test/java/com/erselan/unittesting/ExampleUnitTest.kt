@@ -1,4 +1,4 @@
-package com.systems.unittesting
+package com.erselan.unittesting
 
 import org.junit.Test
 
